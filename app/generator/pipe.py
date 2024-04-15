@@ -17,7 +17,6 @@ from utils.constants import (
 
 class SDPipe(metaclass=SingletonMeta):
     def __init__(self, model_path=None) -> None:
-        print("init called")
         self.model_path = model_path or MODEL_PATH
         self._pipe = StableDiffusionPipeline.from_pretrained(
             self.model_path,
@@ -32,7 +31,6 @@ class SDPipe(metaclass=SingletonMeta):
     
 
     def generate(self, generation_id: str, **kwargs: Unpack[BasePipeConfig]):
-        print(f"kwargs: {kwargs}")
         pipe = self._pipe
         imgs_dict = pipe(**kwargs)
 

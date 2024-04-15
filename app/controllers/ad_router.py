@@ -22,6 +22,11 @@ ad_router = APIRouter(tags=["ad generator"])
 
 @ad_router.post("/ad")
 async def generate_ad(ad_params: AdParams, background_task: BackgroundTasks):
+    """
+    Asynchronously generates an image.
+
+    Response includes generation_id which can be used to fetch the image, once generated.
+    """
     try:
         trace_id = str(uuid4())
         span_id = str(uuid4())

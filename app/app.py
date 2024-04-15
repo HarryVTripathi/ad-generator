@@ -1,7 +1,7 @@
 import logging
 from uvicorn import run
 from fastapi import FastAPI
-from controllers import ad_router
+from controllers import ad_router, enhance_router
 
 def create_app() -> FastAPI:
     app = FastAPI(
@@ -14,6 +14,7 @@ def create_app() -> FastAPI:
         return {"message": "app is live"}
     
     app.include_router(ad_router)
+    app.include_router(enhance_router)
 
     return app
 
