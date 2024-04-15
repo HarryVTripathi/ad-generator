@@ -1,0 +1,2 @@
+class NSFWGeneratedError(BaseException):
+    pass
